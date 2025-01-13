@@ -1,0 +1,26 @@
+.KarastanList {
+  .card-body {
+    overflow: unset;
+  }
+  .date-filter {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .search-label {
+    width: 100%;
+  }
+  .filter-label {
+    margin-right: 10px;
+  }
+  .date-filter-input {
+    max-width: 150px;
+  }
+  .number-filter-input {
+    max-width: 150px;
+  }
+  .number-filter {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

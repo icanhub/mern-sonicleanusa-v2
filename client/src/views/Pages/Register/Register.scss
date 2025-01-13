@@ -1,0 +1,58 @@
+.Register {
+  min-height: none !important;
+
+  img {
+    width: 25%;
+    @media (max-width: 767px) {
+      width: 80%;
+    }
+  }
+
+  h6 {
+    line-height: 1.2rem;
+  }
+  .card-body {
+    // overflow: unset;
+  }
+
+  .error {
+    display: unset;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #f86c6b;
+  }
+
+  .error-select {
+    .Select-control {
+      border: 1px solid red;
+    }
+  }
+
+  .Select-menu-outer {
+    z-index: 1;
+  }
+
+  .Select-menu-outer {
+    top: auto;
+    bottom: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+  }
+  .Select-option:first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+  .Select-option:last-child {
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+  }
+  .Select.is-open > .Select-control {
+    border-top-right-radius: unset;
+    border-top-left-radius: unset;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}

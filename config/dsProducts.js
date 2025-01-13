@@ -1,0 +1,52 @@
+module.exports = {
+  DirectShipProducts: [
+    {
+      _id: '00001',
+      price: '245.00',
+      name: 'Karastan Soft Carpet Upright Vacuum',
+      model: '(Model: KSC-7500)',
+      image: 'https://dealers.sonicleanusa.com/img/KSC-7500.jpg',
+      quantity: '1',
+    },
+    {
+      _id: '00002',
+      price: '235.00',
+      name: 'Soft Carpet Upright Vacuum',
+      model: '(Model: SFC-7000)',
+      image: 'https://dealers.sonicleanusa.com/img/SFC-7000.jpg',
+      quantity: '1',
+    },
+    {
+      _id: '00003',
+      price: '85.00',
+      name: 'Soniclean Handheld Vacuum',
+      model: '(Model: HH-0800)',
+      image: 'https://dealers.sonicleanusa.com/img/HH-0800.jpg',
+      quantity: '1',
+    },
+    {
+      _id: '00004',
+      price: '21.50',
+      name: 'Soniclean Upright HEPA Filter Bags',
+      model: '(Model: SUF-0520)',
+      image: 'https://dealers.sonicleanusa.com/img/SUF-0520.jpg',
+      quantity: '1',
+    },
+    {
+      _id: '00005',
+      price: '16.50',
+      name: 'Sonicfresh Fragrance Pods',
+      model: '(Model: SFP-0100)',
+      image: 'https://dealers.sonicleanusa.com/img/SFP-0100.jpg',
+      quantity: '1',
+    },
+    {
+      _id: '00006',
+      price: '16.50',
+      name: 'Soniclean Handheld HEPA Filter Bags',
+      model: '(Model: SHF-0800)',
+      image: 'https://dealers.sonicleanusa.com/img/SHF-0800.jpg',
+      quantity: '1',
+    },
+  ],
+};

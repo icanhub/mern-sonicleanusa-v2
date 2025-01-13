@@ -1,0 +1,36 @@
+.inputNote {
+  text-align: right;
+  margin: 20px 0;
+  input {
+    width: 100%;
+    border-radius: 0;
+    padding: 5px 15px;
+    border: 1px solid #20a8d8;
+  }
+  display: flex;
+  align-items: center;
+  button {
+    border: 1px solid #20a8d8;
+    background-color: #20a8d8;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 0;
+  }
+}
+.icon-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  li {
+    margin-right: 10px;
+    cursor: pointer;
+    color: red;
+    &.edit-icon {
+      color: green;
+    }
+    &.save-icon {
+      color: #20a8d8;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.Nav {
+  &__item {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  &__content {
+    span {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__border {
+    height: 3px;
+    width: 100%;
+    transition: all 0.3s;
+  }
+}

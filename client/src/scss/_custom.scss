@@ -1,0 +1,213 @@
+// Here you can add other styles
+
+@import './dashboard.scss';
+.img-avatar {
+  width: 80px;
+  margin: 20px auto 10px;
+  border-radius: 50em;
+}
+
+.img-avatar120 {
+  width: 120px;
+  margin: 20px auto 10px;
+  border-radius: 50em;
+}
+
+.img-avatar120-3 {
+  width: 120px;
+  margin: 20px auto 10px;
+  border-radius: 3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0px;
+}
+
+.mt-mobile-5 {
+  @media (min-width: 768px) {
+    margin-top: 5px;
+  }
+}
+
+.card-body {
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.max-width-1200 {
+  width: 1200px;
+}
+
+$brand-success: #5cb85c;
+$loader-size: 7em;
+$check-height: $loader-size/2;
+$check-width: $check-height/2;
+$check-left: ($loader-size/6 + $loader-size/12);
+$check-thickness: 3px;
+$check-color: $brand-success;
+
+.circle-loader {
+  margin-bottom: $loader-size/2;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-left-color: $check-color;
+  animation: loader-spin 1.2s infinite linear;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 50%;
+  width: $loader-size;
+  height: $loader-size;
+}
+
+.load-complete {
+  -webkit-animation: none;
+  animation: none;
+  border-color: $check-color;
+  transition: border 500ms ease-out;
+}
+
+.checkmark {
+  display: none;
+
+  &.draw:after {
+    animation-duration: 800ms;
+    animation-timing-function: ease;
+    animation-name: checkmark;
+    transform: scaleX(-1) rotate(135deg);
+  }
+
+  &:after {
+    opacity: 1;
+    height: $check-height;
+    width: $check-width;
+    transform-origin: left top;
+    border-right: $check-thickness solid $check-color;
+    border-top: $check-thickness solid $check-color;
+    content: '';
+    left: $check-left;
+    top: $check-height;
+    position: absolute;
+  }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    height: 0;
+    width: 0;
+    opacity: 1;
+  }
+  20% {
+    height: 0;
+    width: $check-width;
+    opacity: 1;
+  }
+  40% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+  100% {
+    height: $check-height;
+    width: $check-width;
+    opacity: 1;
+  }
+}
+
+.react-bootstrap-table-pagination-list {
+  text-align: center;
+}
+
+.react-bootstrap-table-page-btns-ul {
+  float: right;
+}
+
+.loading-spinner {
+  position: fixed; /* Sit on top of the page content */
+  display: block; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Black background with opacity */
+  opacity: 1;
+  z-index: 100000; /* Specify a stack order in case you're using a different order for other elements */
+  // cursor: progress; /* Add a pointer on hover */
+}
+
+.spinner-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100000000;
+}
+
+.error-message {
+  color: red;
+}
+
+.main .container-fluid {
+  @include media-breakpoint-down(sm) {
+    padding: 0px 15px;
+  }
+}
+.react-bootstrap-table table {
+  table-layout: auto !important;
+}
+
+.react-pdf__Document {
+  overflow: none;
+}
+.react-pdf__Page {
+  display: flex;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-header .navbar-brand {
+  width: auto;
+}
+
+.notify_box {
+  position: relative;
+  min-width: 50px;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.notify-badge {
+  position: absolute;
+  top: -30%;
+  left: 50%;
+}
+
+.modal-text-color {
+  font-size: 1rem;
+  color: #4f5d73;
+}
+$enable-gradients: true;
+
+.react-datepicker-wrapper {
+  width: 100%;
+}

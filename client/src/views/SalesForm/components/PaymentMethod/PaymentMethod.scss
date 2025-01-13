@@ -1,0 +1,30 @@
+.PaymentMethod {
+  &__card {
+    cursor: pointer;
+    img {
+      width: 60px;
+    }
+  }
+  &__selected {
+    border: 1px solid #4dbd74;
+  }
+  .switch-label {
+  }
+  .switch-slider {
+    width: 100px;
+    margin: 0 auto;
+  }
+  .switch-label .switch-input:checked ~ .switch-slider::before {
+    transform: translateX(75px);
+  }
+  .switch-label .switch-slider::after {
+    width: 80%;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  .switch-input:disabled ~ .switch-slider {
+    opacity: 1;
+    cursor: pointer;
+  }
+  box-shadow: 0 3px 12px -6px rgba(0, 0, 0, 0.54);
+}

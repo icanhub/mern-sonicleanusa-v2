@@ -1,0 +1,15 @@
+.Company {
+  .maxlength {
+    bottom: -3px;
+    right: 15px;
+  }
+  .bio-error {
+    bottom: -3px;
+    left: 15px;
+  }
+  textarea {
+    height: 200px;
+    resize: none;
+    font-size: 14px;
+  }
+}

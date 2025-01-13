@@ -1,0 +1,15 @@
+.Users {
+  .table td {
+    vertical-align: middle;
+  }
+  .table > tbody > tr:nth-child(2n + 1) > td,
+  .table > tbody > tr:nth-child(2n + 1) > th {
+    background-color: rgba(#c8ced3, 0.4);
+  }
+  img {
+    width: 80px;
+  }
+  .cardheader {
+    vertical-align: middle;
+  }
+}

@@ -46,7 +46,8 @@ const defaultSorted = [
 const KarastanList = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.manager.state);
-  const karastan_file = useSelector((state) => state.manager.karastan_file);
+
+  const karastan = useSelector((state) => state.manager.karastan);
 
   useEffect(() => {
     dispatch(fetchKarastanList());
@@ -63,7 +64,7 @@ const KarastanList = () => {
       sort: true,
     },
     {
-      dataField: "dealer_name",
+      dataField: "dealerName",
       text: "Dealer Name",
       align: "right",
       headerAlign: "right",
@@ -71,21 +72,21 @@ const KarastanList = () => {
       searchable: false,
     },
     {
-      dataField: "address1",
+      dataField: "addressOne",
       text: "Address 1",
       align: "right",
       headerAlign: "right",
       sort: true,
     },
     {
-      dataField: "address2",
+      dataField: "addressTwo",
       text: "Address 2",
       align: "right",
       headerAlign: "right",
       sort: true,
     },
     {
-      dataField: "address3",
+      dataField: "addressThree",
       text: "Address 3",
       align: "right",
       headerAlign: "right",
@@ -131,10 +132,12 @@ const KarastanList = () => {
     },
   ];
 
+  console.log('karastan', karastan)
   const options = {
     sizePerPageRenderer,
-    totalSize: karastan_file.length,
+    totalSize: karastan!==undefined && karastan.items.length,
   };
+
 
   return (
     <div className="Users mt-5 mb-5 KarastanList">
@@ -156,10 +159,9 @@ const KarastanList = () => {
                 <div>
                   <>
                     <ToolkitProvider
-                      // data={karastan_file}
-                      data={[]}
+                      data={karastan !== undefined ? karastan.items :[]}
                       columns={columns}
-                      keyField="cust_ref"
+                      keyField="_id"
                       search
                       bootstrap4
                     >

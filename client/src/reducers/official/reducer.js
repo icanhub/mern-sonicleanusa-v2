@@ -179,7 +179,7 @@ export const officialReducer = handleActions(
         return {
           ...state,
           message: payload.message,
-          dealersList: payload.data,
+          dealersList: payload.items,
           error: {},
           state: REQUEST_STATUS.SUCCESS,
         };

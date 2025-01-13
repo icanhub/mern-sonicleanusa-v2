@@ -54,7 +54,6 @@ const DefaultLayout = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (isManager(user.roles)) {
-      console.log('this is manager', managernav);
       let n = managernav.items.map(item => {
         if (item.name === 'New Dealers') {
           item.badge.text =

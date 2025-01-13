@@ -345,34 +345,14 @@ const Dealers = ({
   );
 };
 
-export const getOfficialData = (state) => {
-  const { dealersList, state: requestState, message } = state.official || {};
+const mapStateToProps = ({ account, official }) => {
+  const { accountData } = account || {};
+  const { dealersList, state, message } = official || {};
   return {
     dealersList,
-    requestState,
+    accountData,
+    state,
     message,
-  };
-};
-
-export const getAccountData = (state) => {
-  const { accountData } = state.account || {};
-  return {
-    accountData,
-  };
-};
-const mapStateToProps = (state) => {
-  const { accountData } = state.account || {};
-  // return {
-  //   dealersList,
-  //   state,
-  //   accountData,
-  //   message,
-  // };
-  return {
-    dealersList: [],
-    accountData,
-    state: state.official.state,
-    message: state.official.dealerlistfile
   };
 };
 

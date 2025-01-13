@@ -187,9 +187,9 @@ const OrderFilterTable = ({ orderhistory }) => {
                     );
                   })}
                 {orderType.value === 'ALL' &&
-                  ALLProducts.map(item => {
+                  ALLProducts.map((item, idx) => {
                     return (
-                      <tr>
+                      <tr key={idx}>
                         <td>{item}</td>
                         <td>{pList[item] && pList[item].totalUnits}</td>
                         <td>

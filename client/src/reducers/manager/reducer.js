@@ -138,7 +138,7 @@ export const karastanFileUpload = data => {
 };
 
 export const fetchKarastanList = () => {
-  const apiUrl = `/api/manager/karastanfile`;
+  const apiUrl = `/api/manager/karastan`;
   const token = getToken();
   return apiAction({
     url: apiUrl,
@@ -228,7 +228,7 @@ export const managerReducer = handleActions(
       onSuccess: (state, payload) => {
         return {
           ...state,
-          karastan_file: payload,
+          karastan: payload,
           error: {},
           state: REQUEST_STATUS.SUCCESS,
         };

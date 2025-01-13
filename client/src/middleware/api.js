@@ -1,12 +1,10 @@
-import axios from 'axios';
-import { API } from '../utils/apiCall';
+import axios from "axios";
+import { API } from "../utils/apiCall";
 // import { logout } from '../modules/auth/reducer';
-import { logout } from '../reducers/auth';
-const apiMiddleware = ({ dispatch }) => next => action => {
+import { logout } from "../reducers/auth";
+const apiMiddleware = ({ dispatch }) => (next) => (action) => {
   next(action);
 
-
-  console.log(action)
   if (action.type !== API) return;
 
   const {
@@ -21,17 +19,17 @@ const apiMiddleware = ({ dispatch }) => next => action => {
     headers,
   } = action.payload;
 
-  const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
+  const dataOrParams = ["GET", "DELETE"].includes(method) ? "params" : "data";
 
   // console.log(label);
 
-  if (label === 'soniclean/orderhistory/updatesharedorderinfo') {
-    axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
+  if (label === "soniclean/orderhistory/updatesharedorderinfo") {
+    axios.defaults.headers.common["Content-Type"] = "multipart/form-data";
   } else {
-    axios.defaults.headers.common['Content-Type'] = 'application/json';
+    axios.defaults.headers.common["Content-Type"] = "application/json";
   }
   // axios default configs
-  axios.defaults.headers.common['Authorization'] = `${accessToken}`;
+  axios.defaults.headers.common["Authorization"] = `${accessToken}`;
 
   if (label) {
     dispatch(onStart(label));
@@ -46,18 +44,17 @@ const apiMiddleware = ({ dispatch }) => next => action => {
       headers,
       [dataOrParams]: data,
     })
-    .then(res => {
+    .then((res) => {
       dispatch(onSuccess(res.data));
     })
-    .catch(error => {
+    .catch((error) => {
       // console.log(error);
       if (error.response) {
-        if (error.response.data === 'Unauthorized') {
+        if (error.response.data === "Unauthorized") {
           dispatch(logout());
         }
         dispatch(onFailure(error.response.data));
       }
-
     });
 };
 

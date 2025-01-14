@@ -915,8 +915,8 @@ const OrdersList = ({ history }) => {
                     )
                   )}
                 </select> */}
-                {props => (
-                  <div>
+                {(props, idx) => (
+                  <div key={idx}>
                     <div className="row">
                       <div className="col-md-6">
                         <SearchBar {...props.searchProps} />

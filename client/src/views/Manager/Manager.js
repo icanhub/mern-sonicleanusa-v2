@@ -8,7 +8,7 @@ import TabContainer from './components/TabContainer';
 const Manager = ({ match, fetchAccount, accountData, user }) => {
   useEffect(() => {
     fetchAccount(user.id);
-  }, []);
+  }, [user.id]);
 
   return (
     <Container fluid className="animated fadeIn">

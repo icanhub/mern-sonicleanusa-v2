@@ -306,16 +306,12 @@ router.post('/login', (req, res) => {
     if (!user) {
       return res.status(401).json({ message: 'Email not found' });
     }
-    console.log('this is one');
+
     if (!user.isVerified)
       return res
         .status(401)
         .json({ message: 'Your account has not been verified.' });
-    console.log('this is two');
-    // Check password
-    console.log('this is user',user.password);
-    console.log('this is password',password);
-    console.log('this is bcrypt', bcrypt.compare(password, user.password))
+
     // bcrypt.compare(password, user.password).then(isMatch => {
     //   if (isMatch) {
     //     // User matched
@@ -342,7 +338,7 @@ router.post('/login', (req, res) => {
     //         vacuumAccount: user.vacuumAccount,
     //       };
 
-    //       // Sign token
+    // //       // Sign token
     //       jwt.sign(
     //         payload,
     //         keys.secretOrKey,

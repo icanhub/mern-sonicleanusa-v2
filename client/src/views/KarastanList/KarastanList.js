@@ -132,7 +132,6 @@ const KarastanList = () => {
     },
   ];
 
-  console.log('karastan', karastan)
   const options = {
     sizePerPageRenderer,
     totalSize: karastan!==undefined && karastan.items.length,

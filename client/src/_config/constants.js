@@ -166,7 +166,7 @@ const DirectShipMohawkProducts = [
   },
   {
     _id: 'HH-2-CONV-KIT',
-    price: '9500',
+    price: '9900',
     unit: 'unit',
     tooltip: 'HH-2 Stick Vacuum Conversion Kit with Stand',
     name: 'HH-2 Stick Vacuum Conversion Kit with Stand',

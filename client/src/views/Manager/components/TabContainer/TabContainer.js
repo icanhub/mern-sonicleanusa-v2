@@ -1,14 +1,14 @@
-import React from 'react';
-import { Route, Switch, Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { Card, CardBody, Nav, NavItem, NavLink } from 'reactstrap';
-import Account from '../Account';
-import Users from '../Users';
-import FileUploads from '../FileUploads';
+import React from "react";
+import { Route, Switch, Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import { Card, CardBody, Nav, NavItem, NavLink } from "reactstrap";
+import Account from "../Account";
+import Users from "../Users";
+import FileUploads from "../FileUploads";
 
 const TabContainer = ({ location, accountData }) => {
-  const isPath = path => location.pathname.substr(0, path.length) === path;
+  const isPath = (path) => location.pathname.substr(0, path.length) === path;
 
   return (
     <div className="TabContainer">
@@ -20,7 +20,7 @@ const TabContainer = ({ location, accountData }) => {
                 <NavLink
                   tag={Link}
                   to={`/manager/account`}
-                  active={isPath('/manager/account')}
+                  active={isPath("/manager/account")}
                 >
                   My Account
                 </NavLink>
@@ -29,7 +29,7 @@ const TabContainer = ({ location, accountData }) => {
                 <NavLink
                   tag={Link}
                   to={`/manager/users`}
-                  active={isPath('/manager/users')}
+                  active={isPath("/manager/users")}
                 >
                   Users
                 </NavLink>
@@ -47,7 +47,7 @@ const TabContainer = ({ location, accountData }) => {
                 <NavLink
                   tag={Link}
                   to={`/manager/uploads`}
-                  active={isPath('/manager/uploads')}
+                  active={isPath("/manager/uploads")}
                 >
                   File Upload
                 </NavLink>
@@ -55,10 +55,34 @@ const TabContainer = ({ location, accountData }) => {
             </Nav>
           </section>
           <Switch>
-            <Redirect exact from="/manager" to="/manager/account" />
-            <Route exact path="/manager/account" component={Account} />
-            <Route exact path="/manager/users" component={Users} />
-            <Route exact path="/manager/uploads" component={FileUploads} />
+
+            <Route
+              exact
+              path="/manager"
+              render={() => <Redirect to="/manager/account" />}
+            />
+            <Route
+              exact
+              path="/programdetails"
+              render={() => <Redirect to="/manager/account" />}
+            />
+            <Route
+              exact
+              path="/manager/account"
+              render={(props) => <Account {...props} />}
+            />
+
+            <Route
+              exact
+              path="/manager/users"
+              render={(props) => <Users {...props} />}
+            />
+            <Route
+              exact
+              path="/manager/uploads"
+              render={(props) => <FileUploads {...props} />}
+            />
+            {/* <Route exact path="/manager/uploads" component={FileUploads} /> */}
             {/* <Route exact path="/manager/store" component={Account} /> */}
           </Switch>
         </CardBody>

@@ -11,12 +11,14 @@ import { history } from './_helpers/history';
 import App from './App';
 import './index.css';
 
+import ConfigParams from './_config/index'
 import * as serviceWorker from './serviceWorker';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
 const stripePromise = loadStripe(
-  process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || ''
+  // process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || ''
+  ConfigParams.stripeTestPublicKey || ""
 );
 
 ReactDOM.render(

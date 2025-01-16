@@ -165,7 +165,7 @@ const AddPaymentMethodModal = ({ id }) => {
                     <Col>
                       <Cards
                         number={values.number || ""}
-                        // name={values.name || ''}
+                        name={values.name || ''}
                         expiry={values.expiry || ""}
                         cvc={values.cvc || ""}
                         focused={active}

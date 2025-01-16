@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Col,
@@ -10,28 +10,34 @@ import {
   InputGroupText,
   FormFeedback,
   Input,
-} from 'reactstrap';
-import { Formik } from 'formik';
-import LaddaButton, { EXPAND_RIGHT, L } from 'react-ladda';
-import * as Yup from 'yup';
-import { isPending } from '../../../utils/state';
+} from "reactstrap";
+import { Formik } from "formik";
+import LaddaButton, { EXPAND_RIGHT, L } from "react-ladda";
+import * as Yup from "yup";
+import { isPending } from "../../../utils/state";
 
-import 'ladda/dist/ladda-themeless.min.css';
-import 'react-toastify/dist/ReactToastify.css';
+import "ladda/dist/ladda-themeless.min.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Invalid email address')
-    .required('Email is required!'),
-  password: Yup.string().required('Password is required'),
+    .email("Invalid email address")
+    .required("Email is required!"),
+  password: Yup.string().required("Password is required"),
 });
 
 const LoginForm = ({ submit, state }) => {
-  const onSubmit = (values, { setSubmitting, setErrors }) => {
-    submit(values);
+  const onSubmit = async (values, { setSubmitting, setErrors }) => {
+    try {
+      await submit(values);
+    } catch (error) {
+      setErrors({ submit: "An error occured" });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
-  const isInitialValid = props => {
+  const isInitialValid = (props) => {
     if (!props.validationSchema) return true;
     return props.validationSchema.isValidSync(props.initialValues);
   };
@@ -39,8 +45,8 @@ const LoginForm = ({ submit, state }) => {
   return (
     <Formik
       initialValues={{
-        email: '',
-        password: '',
+        email: "",
+        password: "",
       }}
       validationSchema={loginSchema}
       onSubmit={onSubmit}
@@ -117,7 +123,7 @@ const LoginForm = ({ submit, state }) => {
                   type="button"
                   color="link"
                   className="px-0"
-                  loading={isPending(state)}
+                  disabled={isPending(state)}
                   to="/resetpassword"
                 >
                   Reset Password
@@ -130,7 +136,7 @@ const LoginForm = ({ submit, state }) => {
                   type="button"
                   color="link"
                   className="px-0"
-                  loading={isPending(state)}
+                  disabled={isPending(state)}
                   to="/resetpassword"
                 >
                   Register

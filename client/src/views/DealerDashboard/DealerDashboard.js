@@ -152,10 +152,10 @@ const DealerDashboard = ({ history, pdf_file, getUploadFile }) => {
             <Col xs="12" sm="6" lg="4">
               <Card
                 className="text-white bg-success text-center dashboard__card"
-                onClick={() => history.push('/programdetails')}
+                onClick={() => history.push('/Orders')}
               >
                 <CardBody>
-                  <h4>View Program Details</h4>
+                  <h4>View Order History</h4>
                 </CardBody>
               </Card>
             </Col>

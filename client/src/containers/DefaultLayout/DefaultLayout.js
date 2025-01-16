@@ -1,10 +1,10 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { Container } from 'reactstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { logout } from '../../reducers/auth';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, Suspense } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { Container } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { logout } from "../../reducers/auth";
+import { Link } from "react-router-dom";
 
 import {
   AppAside,
@@ -15,31 +15,31 @@ import {
   AppSidebarForm,
   AppSidebarHeader,
   AppSidebarNav,
-} from '@coreui/react';
+} from "@coreui/react";
 // sidebar nav config
-import navigation from '../../_nav';
-import officialnav from '../../_officialnav';
-import managernav from '../../_managernav';
+import navigation from "../../_nav";
+import officialnav from "../../_officialnav";
+import managernav from "../../_managernav";
 // routes config
-import routes from '../../Routes/routes';
+import routes from "../../Routes/routes";
 import {
   getUploadedImage,
   isManager,
   isOfficial,
   isAdmin,
-} from '../../_helpers/helper';
+} from "../../_helpers/helper";
 // import { fetchNewDealersList } from '../../modules/official';
-import { fetchNewDealersList } from '../../reducers/official';
-import LogOutModal from '../../components/LogOutModal';
-import CovidModal from '../../components/CovidModal';
+import { fetchNewDealersList } from "../../reducers/official";
+import LogOutModal from "../../components/LogOutModal";
+import CovidModal from "../../components/CovidModal";
 
-const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
-const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
+const DefaultFooter = React.lazy(() => import("./DefaultFooter"));
+const DefaultHeader = React.lazy(() => import("./DefaultHeader"));
 
 const DefaultLayout = () => {
-  const user = useSelector(state => state.auth.user);
-  console.log('user',user)
-  const newDealerList = useSelector(state => state.official.newDealerList);
+  const user = useSelector((state) => state.auth.user);
+
+  const newDealerList = useSelector((state) => state.official.newDealerList);
 
   const loading = () => (
     <div className="animated fadeIn pt-1 text-center">
@@ -55,8 +55,8 @@ const DefaultLayout = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (isManager(user.roles)) {
-      let n = managernav.items.map(item => {
-        if (item.name === 'New Dealers') {
+      let n = managernav.items.map((item) => {
+        if (item.name === "New Dealers") {
           item.badge.text =
             newDealerList && newDealerList.length > 1
               ? `${newDealerList.length} NEW`
@@ -68,8 +68,9 @@ const DefaultLayout = () => {
       dn.items = n;
       setNav(dn);
     } else if (isOfficial(user.roles)) {
-      let n = officialnav.items.map(item => {
-        if (item.name === 'New Dealers') {
+      console.log('official nav', officialnav);
+      let n = officialnav.items.map((item) => {
+        if (item.name === "New Dealers") {
           item.badge.text =
             newDealerList && newDealerList.length > 1
               ? `${newDealerList.length} NEW`
@@ -81,14 +82,14 @@ const DefaultLayout = () => {
       dn.items = n;
       setNav(dn);
     } else {
-      let n = navigation.items.map(item => {
-        if (item.name === 'Shop') {
+      let n = navigation.items.map((item) => {
+        if (item.name === "Shop") {
           item.url = `/sales/${user.id}`;
         }
-        if (item.name === 'Settings') {
+        if (item.name === "Settings") {
           item.url = `/profile/account/${user.id}`;
         }
-        if (item.name === 'Orders') {
+        if (item.name === "Orders") {
           item.url = `/orders/${user.id}`;
         }
         return item;
@@ -103,7 +104,7 @@ const DefaultLayout = () => {
     dispatch(fetchNewDealersList({ isVerified: false }));
   }, []);
 
-  const signOut = e => {
+  const signOut = (e) => {
     setModal(true);
   };
 
@@ -129,7 +130,7 @@ const DefaultLayout = () => {
       <AppHeader fixed>
         <Suspense fallback={loading()}>
           <DefaultHeader
-            onLogout={e => signOut(e)}
+            onLogout={(e) => signOut(e)}
             openCovidUpdate={openCovidUpdate}
             user={user}
           />
@@ -141,7 +142,7 @@ const DefaultLayout = () => {
             <img
               src={
                 user.userPhoto === undefined
-                  ? require('../../assets/img/emptylogo.png')
+                  ? require("../../assets/img/emptylogo.png")
                   : getUploadedImage(user.userPhoto)
               }
               className="img-avatar"
@@ -160,13 +161,13 @@ const DefaultLayout = () => {
           <Suspense>
             <AppSidebarNav navConfig={nav} />
             <Link
-              style={{ width: '100%' }}
+              style={{ width: "100%" }}
               to="#"
               className="nav-link"
-              onClick={e => signOut(e)}
+              onClick={(e) => signOut(e)}
             >
-              {' '}
-              <i className="nav-icon fa fa-lock"></i> Logout{' '}
+              {" "}
+              <i className="nav-icon fa fa-lock"></i> Logout{" "}
             </Link>
           </Suspense>
           <AppSidebarFooter />
@@ -182,7 +183,7 @@ const DefaultLayout = () => {
                       path={route.path}
                       exact={route.exact}
                       name={route.name}
-                      render={props => (
+                      render={(props) => (
                         <route.component
                           {...props}
                           isVerified={route.isVerified}
@@ -195,7 +196,7 @@ const DefaultLayout = () => {
                   from="/"
                   to={
                     isAdmin(user.roles)
-                      ? '/admin-dashboard'
+                      ? "/admin-dashboard"
                       : `/dealer-dashboard`
                   }
                 />

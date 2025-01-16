@@ -253,7 +253,6 @@ const DealerLocator = () => {
                   <SearchBar {...props.searchProps} />
                   <PaginationProvider pagination={paginationFactory(options)}>
                     {({ paginationProps, paginationTableProps }) =>{ 
-                      console.log(props.baseProps);
                       return(
                       <div>
                         <PaginationTotalStandalone {...paginationProps} />

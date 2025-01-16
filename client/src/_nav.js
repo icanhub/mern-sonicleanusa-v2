@@ -28,11 +28,11 @@ export default {
       url: '/Orders',
       icon: 'icon-screen-desktop',
     },
-    {
-      name: 'Program Details',
-      url: '/programdetails',
-      icon: 'icon-book-open',
-    },
+    // {
+    //   name: 'Program Details',
+    //   url: '/programdetails',
+    //   icon: 'icon-book-open',
+    // },
     {
       name: 'Contact Us',
       url: '/contact-us',

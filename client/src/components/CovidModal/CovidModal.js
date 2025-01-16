@@ -1,20 +1,19 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Modal, ModalHeader, ModalBody, Row, Col } from 'reactstrap';
-import { isAdmin } from '../../_helpers/helper';
+import React from "react";
+import { useSelector } from "react-redux";
+import { Modal, ModalHeader, ModalBody, Row, Col } from "reactstrap";
+import { isAdmin } from "../../_helpers/helper";
 
 const CovidModal = ({ modal, closeCovidModal }) => {
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector((state) => state.auth.user);
   return (
     <>
-      <Modal isOpen={modal} className={'modal-primary modal-lg'}>
+      <Modal isOpen={modal} className={"modal-primary modal-lg"}>
         <ModalHeader toggle={closeCovidModal}>
           {isAdmin(user.roles)
-                    ? 'Program Update – June 01 2021'
-                    : user.mohawkAccount
-                    ? 'Program Update – June 01 2021'
-                    : 'Program Update – June 01 2021'}
+            ? "Program Update – December 15 2024"
+            : user.mohawkAccount
+            ? "Program Update – December 15 2024"
+            : "Program Update – December 15 2024"}
         </ModalHeader>
         <ModalBody>
           <Row className="mb-3">
@@ -24,13 +23,22 @@ const CovidModal = ({ modal, closeCovidModal }) => {
               </h5>
               <br />
               <h5 className="modal-text-color">
-                <Link to="/programdetails" onClick={closeCovidModal}>
+                <div
+                  style={{ textDecoration: 'underline', color: 'blue', cursor: 'pointer' }} 
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = "/assets/MohawkandKarastan-2025.pdf";
+                    link.download = "MohawkandKarastan-2025.pdf";
+                    link.click();
+                    closeCovidModal();
+                  }}
+                >
                   {isAdmin(user.roles)
-                    ? 'Soniclean | Dealer Programs – June 01 2021'
+                    ? "Soniclean | Dealer Programs – December 15 2024"
                     : user.mohawkAccount
-                    ? 'Soniclean | Mohawk Program – June 01 2021'
-                    : 'Soniclean | Vacuum Program – June 01 2021'}
-                </Link>
+                    ? "Soniclean | Mohawk Program – December 15 2024"
+                    : "Soniclean | Vacuum Program – December 15 2024"}
+                </div>
               </h5>
             </Col>
           </Row>

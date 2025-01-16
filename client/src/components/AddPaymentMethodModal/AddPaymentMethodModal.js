@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   Button,
   Col,
@@ -9,27 +9,27 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-} from 'reactstrap';
-import creditCardType from 'credit-card-type';
-import Cards from 'react-credit-cards';
-import {
-  formatCreditCardNumber,
-  formatCVC,
-  formatExpirationDate,
-} from './cardUtils';
-import { Form, Field } from 'react-final-form';
-import { saveCard, resetPostingState } from '../../reducers/cards';
-import { isPending, hasSucceeded, hasFailed } from '../../utils/state';
+} from "reactstrap";
+import creditCardType from "credit-card-type";
+import Cards from "react-credit-cards";
+// import {
+//   formatCreditCardNumber,
+//   formatCVC,
+//   formatExpirationDate,
+// } from "./cardUtils";
+import { Form, Field } from "react-final-form";
+import { saveCard, resetPostingState } from "../../reducers/cards";
+import { isPending, hasSucceeded, hasFailed } from "../../utils/state";
 import {
   useStripe,
   useElements,
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
-} from '@stripe/react-stripe-js';
-import 'react-credit-cards/es/styles-compiled.css';
-import { useMediaQuery } from 'react-responsive';
-import '../AddPaymentMethodModal/AddPaymentMethodModal.scss';
+} from "@stripe/react-stripe-js";
+import "react-credit-cards/es/styles-compiled.css";
+import { useMediaQuery } from "react-responsive";
+import "../AddPaymentMethodModal/AddPaymentMethodModal.scss";
 
 const Default = ({ children }) => {
   const isNotMobile = useMediaQuery({ minWidth: 768 });
@@ -37,38 +37,38 @@ const Default = ({ children }) => {
 };
 
 const initialValues = {
-  number: '',
-  expiry: '',
-  cvc: '',
-  name: '',
+  number: "",
+  expiry: "",
+  cvc: "",
+  name: "",
 };
 
 const AddPaymentMethodModal = ({ id }) => {
-  const [errorMessage, setErrors] = useState('');
+  const [errorMessage, setErrors] = useState("");
   const [modal, setModal] = useState(false);
 
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
 
-  const posting_state = useSelector(state => state.card.posting_state);
-  const error = useSelector(state => state.card.error);
+  const posting_state = useSelector((state) => state.card.posting_state);
+  const error = useSelector((state) => state.card.error);
 
   const CARD_ELEMENT_OPTIONS = {
     style: {
       base: {
-        color: '#32325d',
+        color: "#32325d",
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: 'antialiased',
-        fontSize: '16px',
-        '::placeholder': {
-          color: '#aab7c4',
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+          color: "#aab7c4",
         },
-        borderRadius: '50px',
+        borderRadius: "50px",
       },
       invalid: {
-        color: '#fa755a',
-        iconColor: '#fa755a',
+        color: "#fa755a",
+        iconColor: "#fa755a",
       },
     },
   };
@@ -84,10 +84,10 @@ const AddPaymentMethodModal = ({ id }) => {
     }
   }, [posting_state]);
 
-  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-  const onSubmit = async values => {
-    setErrors('');
+  const onSubmit = async (values) => {
+    setErrors("");
 
     // if (values.cvc === '') {
     //   setErrors('CVC is required');
@@ -114,9 +114,11 @@ const AddPaymentMethodModal = ({ id }) => {
     //     expiredateyear: values.expiry.substr(3, 6),
     //   };
     // }
+
     const cardNumberElement = elements.getElement(CardNumberElement);
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
+      type: "card",
       card: cardNumberElement,
     });
     if (error) {
@@ -126,7 +128,7 @@ const AddPaymentMethodModal = ({ id }) => {
     }
   };
 
-  const validateCardType = number => {
+  const validateCardType = (number) => {
     var cardtype = creditCardType(number);
     if (cardtype.length > 0) return true;
     else if (cardtype.length === 0) return false;
@@ -138,7 +140,7 @@ const AddPaymentMethodModal = ({ id }) => {
         size="md"
         className="btn-success btn-brand mr-1 mb-1 float-right"
         onClick={() => {
-          setErrors('');
+          setErrors("");
           setModal(true);
         }}
       >
@@ -162,10 +164,10 @@ const AddPaymentMethodModal = ({ id }) => {
                   <Row>
                     <Col>
                       <Cards
-                        number={values.number || ''}
+                        number={values.number || ""}
                         // name={values.name || ''}
-                        expiry={values.expiry || ''}
-                        cvc={values.cvc || ''}
+                        expiry={values.expiry || ""}
+                        cvc={values.cvc || ""}
                         focused={active}
                       />
                     </Col>
@@ -242,7 +244,7 @@ const AddPaymentMethodModal = ({ id }) => {
                     type="submit"
                     disabled={isPending(posting_state)}
                   >
-                    {isPending(posting_state) ? 'Wait...' : 'Submit'}
+                    {isPending(posting_state) ? "Wait..." : "Submit"}
                   </Button>
                   <Button
                     color="danger"

@@ -38,6 +38,7 @@ const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 const DefaultLayout = () => {
   const user = useSelector(state => state.auth.user);
+  console.log('user',user)
   const newDealerList = useSelector(state => state.official.newDealerList);
 
   const loading = () => (

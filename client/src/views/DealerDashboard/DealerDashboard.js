@@ -68,8 +68,8 @@ const DealerDashboard = ({ history, pdf_file, getUploadFile }) => {
         <Modal isOpen={modal} className={'modal-primary modal-lg'}>
           <ModalHeader toggle={closePriceUpdateModal}>
             {user.roles === 'dealer'
-              ? 'Program Update – June 01 2021'
-              : 'Program Update – June 01 2021'}
+              ? 'Program Update – December 15 2024'
+              : 'Program Update – December 15 2024'}
           </ModalHeader>
           <ModalBody>
             <Row className="mb-3">

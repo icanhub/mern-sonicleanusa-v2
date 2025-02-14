@@ -16,6 +16,7 @@
   "dependencies": {
     "aws-sdk": "^2.866.0",
     "axios": "^0.19.0",
+    "babel-eslint": "^10.1.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",

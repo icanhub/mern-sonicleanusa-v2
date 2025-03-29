@@ -5,6 +5,9 @@ const AWS = require('aws-sdk');
 const nodemailer = require('nodemailer');
 
 var aws_remote_config = {
+  accessKeyId: 'AKIAXV66VW3EIPQ6MHY4',
+  secretAccessKey: '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',
+  region: 'us-east-2',
 };
 
 AWS.config.update(aws_remote_config);

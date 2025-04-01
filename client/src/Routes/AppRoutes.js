@@ -19,11 +19,6 @@ const Login = Loadable({
   loading,
 });
 
-// const ChooseRegister = Loadable({
-//   loader: () => import('views/Pages/ChooseRegister'),
-//   loading,
-// });
-
 const Register = Loadable({
   loader: () => import('../views/Pages/Register'),
   loading,

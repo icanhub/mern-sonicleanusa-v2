@@ -21,7 +21,6 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
 
   const dataOrParams = ["GET", "DELETE"].includes(method) ? "params" : "data";
 
-  // console.log(label);
 
   if (label === "soniclean/orderhistory/updatesharedorderinfo") {
     axios.defaults.headers.common["Content-Type"] = "multipart/form-data";
@@ -35,8 +34,6 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
     dispatch(onStart(label));
   }
 
-  // console.log(url, data);
-
   axios
     .request({
       url,
@@ -48,7 +45,6 @@ const apiMiddleware = ({ dispatch }) => (next) => (action) => {
       dispatch(onSuccess(res.data));
     })
     .catch((error) => {
-      // console.log(error);
       if (error.response) {
         if (error.response.data === "Unauthorized") {
           dispatch(logout());

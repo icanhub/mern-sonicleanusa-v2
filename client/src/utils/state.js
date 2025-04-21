@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 import { REQUEST_STATUS } from '../_config/constants';
-
+ 
 export const requestSuccess = actionType => `${actionType}/success`;
 
 export const requestFail = actionType => `${actionType}/fail`;

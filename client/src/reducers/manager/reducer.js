@@ -1,5 +1,5 @@
 import { handleActions } from 'redux-actions';
-import {
+import { 
   GETSONICLEANUSERS,
   ADDNEWSONICLEANUSER,
   DELETESONICLEANUSER,

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import ReactNotifications from 'react-notifications-component';
 import AppRoutes from './Routes/AppRoutes';
 import AuthRoute from './Routes/AuthRoute';
-
+ 
 import './App.scss';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';

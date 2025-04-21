@@ -1,5 +1,5 @@
 const keys = require('../config/keys');
-
+ 
 const getOrderName = orderNumber => {
   return orderNumber.split('.')[0];
 };

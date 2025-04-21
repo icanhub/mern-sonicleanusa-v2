@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+ 
 const KarastanSchema = new Schema({
   code: { type: Number },
   dealerName: { type: String },

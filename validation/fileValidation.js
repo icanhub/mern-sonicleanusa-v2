@@ -1,5 +1,5 @@
 const { ResponseBuilder } = require('../utils/ResponseBuilder');
-
+   
 module.exports.FileValidationOptions = class FileValidationOptions {
   fileTypes = [];
   isRequired = false;

@@ -23,7 +23,7 @@ module.exports = {
       model: '(Model: HH-0800)',
       image: 'https://dealers.sonicleanusa.com/img/HH-0800.jpg',
       quantity: '1',
-    },
+    }, 
     {
       _id: '00004',
       price: '21.50',

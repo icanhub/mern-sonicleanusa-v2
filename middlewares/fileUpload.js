@@ -1,7 +1,7 @@
 const multer = require('multer');
 const Path = require('path');
 const { fileValidation } = require('../validation/fileValidation');
-
+ 
 const defaultPath = './public';
 
 module.exports.UploadFileOptions = class UploadFileOptions {
